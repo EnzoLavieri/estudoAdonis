@@ -24,5 +24,5 @@ Route.group(() => {
   Route.get("/", async () => {
     return { hello: "world" };
   });
-  Route.post("/medicaments", "MedicamentsController.store");
+  Route.resource("/medicaments", "MedicamentsController").apiOnly();
 }).prefix("/api");
