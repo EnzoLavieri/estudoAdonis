@@ -10,8 +10,7 @@ export default class MedicamentsController {
     response.status(201);
 
     return {
-      message: "Medicament created successfully",
-      data: medicament,
+      message: "Medicamento criado com sucesso",
     };
   }
 
@@ -19,7 +18,6 @@ export default class MedicamentsController {
     const medicaments = await Medicament.all();
 
     return response.json({
-      message: "Medicaments retrieved successfully",
       data: medicaments,
     });
   }
