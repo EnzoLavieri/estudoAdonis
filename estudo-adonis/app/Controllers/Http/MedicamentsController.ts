@@ -10,7 +10,8 @@ export default class MedicamentsController {
     response.status(201);
 
     return {
-      message: "Medicamento criado com sucesso",
+      message: "Medicamento criado com sucesso!",
+      data: medicament,
     };
   }
 
