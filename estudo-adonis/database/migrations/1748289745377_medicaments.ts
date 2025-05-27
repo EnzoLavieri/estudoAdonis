@@ -7,6 +7,7 @@ export default class Medicaments extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.uuid("id").primary();
       table.string("name");
+      table.string("brand");
       table.string("description");
       table.integer("quantity");
       table.string("type");
