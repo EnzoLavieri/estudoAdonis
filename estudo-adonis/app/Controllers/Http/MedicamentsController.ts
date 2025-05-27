@@ -16,8 +16,7 @@ export default class MedicamentsController {
     response.status(201);
 
     return response.json({
-      message: "Medicamento criado com sucesso!",
-      medicament: medicament,
+      message: `Medicamento ${medicament.name} criado com sucesso.`,
     });
   }
 
@@ -47,6 +46,22 @@ export default class MedicamentsController {
 
     return response.json({
       message: `Medicamento ${medicament.name} excluído com sucesso.`,
+    });
+  }
+
+  public async update({ params, request, response }: HttpContextContract) {
+    const body = request.body();
+    const medicament = await Medicament.findOrFail(params.id);
+
+    medicament.name = body.name;
+    medicament.description = body.description;
+    medicament.quantity = body.quantity;
+    medicament.type = body.type;
+
+    await medicament.save();
+
+    return response.json({
+      message: `Medicamento ${medicament.name} atualizado com sucesso.`,
     });
   }
 }

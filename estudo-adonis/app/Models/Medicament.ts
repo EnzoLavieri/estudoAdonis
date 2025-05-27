@@ -25,7 +25,7 @@ export default class Medicament extends BaseModel {
   //liquido, pomada, comprimido, etc....
   //ver se é melhor colocar enum e procurar mais "tipos" de medicamentos
 
-  @column()
+  @column({ columnName: "expirationDate", serializeAs: "expirationDate" })
   public expirationDate: DateTime;
 
   @column.dateTime({ autoCreate: true })
