@@ -14,10 +14,10 @@ export default class MedicamentsController {
 
     response.status(201);
 
-    return {
+    return response.json({
       message: "Medicamento criado com sucesso!",
       data: medicament,
-    };
+    });
   }
 
   //retorna todos os medicamentos
