@@ -22,7 +22,7 @@ import Route from "@ioc:Adonis/Core/Route";
 
 Route.group(() => {
   Route.get("/", async () => {
-    return { hello: "world" };
+    return { api: "online =)" };
   });
   Route.resource("/medicaments", "MedicamentsController").apiOnly();
 }).prefix("/api");

@@ -23,6 +23,7 @@ export default class Medicament extends BaseModel {
   @column()
   public type: string;
   //liquido, pomada, comprimido, etc....
+  //ver se é melhor colocar enum e procurar mais "tipos" de medicamentos
 
   @column()
   public expirationDate: DateTime;
