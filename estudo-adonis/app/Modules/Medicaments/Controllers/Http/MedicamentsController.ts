@@ -6,7 +6,8 @@ import Medicament from "App/Modules/Medicaments/Models/Medicament";
 //https://docs.adonisjs.com/guides/basics/exception-handling#exception-handling
 
 export default class MedicamentsController {
-  //cria um novo medicamento
+  //  POST
+  // /api/medicaments | cria um novo medicamento
   public async store({ request, response }: HttpContextContract) {
     const body = request.body();
 
@@ -19,7 +20,8 @@ export default class MedicamentsController {
     });
   }
 
-  //retorna todos os medicamentos
+  //  GET
+  // /api/medicaments | mostra todos os medicamentos
   public async index({ response }: HttpContextContract) {
     const medicaments = await Medicament.all();
 
@@ -28,7 +30,8 @@ export default class MedicamentsController {
     });
   }
 
-  //mosta um medicamento por id
+  //  GET
+  // /api/medicaments/:id | mosta um medicamento por id
   public async show({ params, response }: HttpContextContract) {
     const medicament = await Medicament.findOrFail(params.id);
 
@@ -37,7 +40,8 @@ export default class MedicamentsController {
     });
   }
 
-  //exclui um medicamento por id
+  //  DELETE
+  // /api/medicaments/:id | deleta o medicamento por id
   public async destroy({ params, response }: HttpContextContract) {
     const medicament = await Medicament.findOrFail(params.id);
 
@@ -48,7 +52,8 @@ export default class MedicamentsController {
     });
   }
 
-  //atualiza o medicamento por id
+  //  PUT
+  // /api/medicaments/:id | atualiza o medicamento por id
   public async update({ params, request, response }: HttpContextContract) {
     const body = request.body();
     const medicament = await Medicament.findOrFail(params.id);
