@@ -1,6 +1,8 @@
 import { DateTime } from "luxon";
 import { BaseModel, column, beforeCreate } from "@ioc:Adonis/Lucid/Orm";
 import { v4 as uuidv4 } from "uuid";
+import { MedicamentType } from "../Enums/MedicamentType";
+import { MedicamentLevel } from "../Enums/MedicamentLevel";
 
 export default class Medicament extends BaseModel {
   @column({ isPrimary: true })
@@ -24,16 +26,13 @@ export default class Medicament extends BaseModel {
   public quantity: number;
 
   @column()
-  public type: string;
-  //liquido, pomada, comprimido, etc....
-  //ver se é melhor colocar enum e procurar mais "tipos" de medicamentos
+  public type: MedicamentType;
 
   @column()
-  public level: string;
+  public level: MedicamentLevel;
 
-  //--> task pra amanha <--
-  //- adicionar amanha bool para indicar se é generico ou não
-  //- implementar os enums em: type e level
+  @column()
+  public generic: boolean;
 
   @column({ columnName: "expirationDate", serializeAs: "expirationDate" })
   public expirationDate: DateTime;

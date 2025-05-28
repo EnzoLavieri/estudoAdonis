@@ -1,5 +1,5 @@
 import type { HttpContextContract } from "@ioc:Adonis/Core/HttpContext";
-import Medicament from "App/Models/Medicament";
+import Medicament from "App/Modules/Medicaments/Models/Medicament";
 
 //implementar depois erros e exceções
 //https://legacy.adonisjs.com/docs/3.2/error-and-exceptions
@@ -60,6 +60,7 @@ export default class MedicamentsController {
     medicament.type = body.type;
     medicament.level = body.level;
     medicament.expirationDate = body.expirationDate;
+    medicament.generic = body.generic;
 
     await medicament.save();
 

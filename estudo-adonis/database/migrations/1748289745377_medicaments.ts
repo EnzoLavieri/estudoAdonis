@@ -13,6 +13,7 @@ export default class Medicaments extends BaseSchema {
       table.string("type");
       table.date("expirationDate");
       table.string("level");
+      table.boolean("generic").defaultTo(false);
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
